@@ -46,7 +46,7 @@ function App() {
           <input
             value={input}
             type="text"
-            placeholder="Type anything..."
+            placeholder="Paste any URL or Type something..."
             className="px-4 py-3 rounded-full border border-green-300 focus:outline-none focus:ring focus:ring-green-400 text-gray-700 shadow-sm"
             onChange={(e) => setInput(e.target.value)}
           />
