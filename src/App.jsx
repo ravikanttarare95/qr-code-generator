@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import QRCode from "qrcode";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [input, setInput] = useState("");
   const [qrImageUrl, setQrImageUrl] = useState("");
   const handleQr = () => {
-    if (!input) return alert("Enter some Text");
+    if (!input) return toast.error("Type something in the box");
 
     QRCode.toDataURL(input, function (err, url) {
       if (err) return console.error("Invalid Data");
       setQrImageUrl(url);
+      toast.success("Your QR code is ready!");
       setInput("");
     });
   };
@@ -24,7 +26,6 @@ function App() {
           Instantly create scannable QR codes from your text
         </p>
 
-        {/* QR Preview */}
         <div className="my-8">
           <div className="h-56 w-56 rounded-2xl border-2 border-green-300 shadow-lg flex items-center justify-center p-3 bg-white">
             {qrImageUrl ? (
@@ -41,7 +42,6 @@ function App() {
           </div>
         </div>
 
-        {/* Input & Button */}
         <div className="flex flex-col gap-4 w-full">
           <input
             value={input}
@@ -59,7 +59,6 @@ function App() {
         </div>
       </div>
 
-      {/* Fade-in animation */}
       <style>
         {`
           @keyframes fadeIn {
@@ -71,6 +70,7 @@ function App() {
           }
         `}
       </style>
+      <Toaster />
     </div>
   );
 }
