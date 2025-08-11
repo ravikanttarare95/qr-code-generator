@@ -13,7 +13,7 @@ A modern, responsive web app to instantly generate scannable QR codes from any t
 - Input validation and user feedback
 - Scan QR codes directly on your phone
 
-### [Check it out live here: 👈](./src/assets/qr-code.png)
+### [Check it out live here: 👈](https://qr-code-generator-blue-mu.vercel.app/)
 
 
 ## Tech Stack
