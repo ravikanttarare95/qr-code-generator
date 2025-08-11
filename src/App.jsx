@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import QRCode from "qrcode";
 import toast, { Toaster } from "react-hot-toast";
-import { Github } from "lucide-react"; // lucide-react GitHub icon
+import { Github } from "lucide-react";
 
 function App() {
   const [input, setInput] = useState("");
@@ -22,17 +22,21 @@ function App() {
     <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-pink-100 via-white to-red-50 overflow-hidden">
       {/* Main Content */}
       <div className="flex-grow flex items-center justify-center px-4 py-6">
-        <div className="flex flex-col items-center shadow-2xl rounded-3xl px-7 py-6 w-full max-w-lg bg-white/80 backdrop-blur-xl border border-green-100">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 drop-shadow-lg tracking-wide text-center">
+        <div className="flex flex-col items-center shadow-2xl rounded-3xl px-8 py-10 w-full max-w-lg bg-white/70 backdrop-blur-xl border border-green-100 transition-all duration-300 hover:shadow-green-200/50">
+          <h1 className="text-4xl font-extrabold text-gray-800 drop-shadow-lg tracking-wide text-center">
             QR Code Generator
           </h1>
           <p className="text-gray-500 mt-2 text-center text-lg italic">
             Instantly create scannable QR codes from your text
           </p>
 
-          <div className="my-6">
-            <div className="h-48 w-48 sm:h-60 sm:w-60 rounded-xl p-[3px] bg-green-200 shadow-lg">
-              <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-3">
+          <div className="my-8">
+            <div
+              className={`h-52 w-52 sm:h-60 sm:w-60 rounded-2xl p-[3px] bg-green-200 shadow-lg transition-all duration-500 ${
+                qrImageUrl ? "ring-4 ring-green-400 ring-offset-2" : ""
+              }`}
+            >
+              <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center p-3">
                 {qrImageUrl ? (
                   <img
                     src={qrImageUrl}
@@ -52,12 +56,12 @@ function App() {
             <input
               value={input}
               type="text"
-              placeholder="Paste any URL or Type something..."
-              className="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-1 text-gray-700 shadow-sm"
+              placeholder="Paste any URL or type something..."
+              className="px-5 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-1 text-gray-700 shadow-sm transition-all"
               onChange={(e) => setInput(e.target.value)}
             />
             <button
-              className="px-6 py-3 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-semibold rounded-full shadow-lg transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="px-6 py-3 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-semibold rounded-full shadow-lg transition-all transform hover:scale-105 hover:shadow-green-300 active:scale-95 cursor-pointer"
               onClick={handleQr}
             >
               Generate QR Code
@@ -73,18 +77,18 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div className="flex items-center justify-center gap-2 text-white hover:text-green-400 cursor-pointer transition-colors">
+          <div className="flex items-center justify-center gap-2 text-white hover:text-green-400 transition-all hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.6)] cursor-pointer">
             <Github size={22} />
             <span className="font-medium">Check codebase</span>
           </div>
         </a>
       </footer>
 
-      {/* Animation */}
+      {/* Animations */}
       <style>
         {`
           @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0); }
+            from { opacity: 0; transform: scale(0.85); }
             to { opacity: 1; transform: scale(1); }
           }
           .animate-fadeIn {
