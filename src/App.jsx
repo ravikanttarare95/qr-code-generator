@@ -19,11 +19,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-green-100 via-white to-red-50 overflow-hidden">
+    <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-pink-100 via-white to-red-50 overflow-hidden">
       {/* Main Content */}
       <div className="flex-grow flex items-center justify-center px-4 py-6">
         <div className="flex flex-col items-center shadow-2xl rounded-3xl px-7 py-6 w-full max-w-lg bg-white/80 backdrop-blur-xl border border-green-100">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 drop-shadow-lg tracking-wide text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 drop-shadow-lg tracking-wide text-center">
             QR Code Generator
           </h1>
           <p className="text-gray-500 mt-2 text-center text-lg italic">
@@ -31,8 +31,8 @@ function App() {
           </p>
 
           <div className="my-6">
-            <div className="h-48 w-48 rounded-2xl p-[3px] border border-gray-200 shadow-lg">
-              <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center p-3">
+            <div className="h-48 w-48 sm:h-60 sm:w-60 rounded-xl p-[3px] bg-green-200 shadow-lg">
+              <div className="w-full h-full rounded-xl bg-white flex items-center justify-center p-3">
                 {qrImageUrl ? (
                   <img
                     src={qrImageUrl}
